@@ -2,18 +2,20 @@ version: '3'
 services:
   acg_faka:
     image: acg_faka:latest
-    container_name: acg_faka
+    container_name: ${DOCKER_FAKA_CONTAINER_NAME}
     build:
       context: .
-    ports:
-      - 2500:80
+    # ports:
+    #   - 8080:80
     volumes:
-      - ./cache:/var/www/html/assets/cache
+      - ./acg-faka:/var/www/html
     depends_on:
       - acg_faka_db
+    networks:
+      - acg_faka
   acg_faka_db:
     image: mysql:8
-    container_name: acg_faka_db
+    container_name: ${DOCKER_FAKA_DB_CONTAINER_NAME}
     environment:
       MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
       MYSQL_DATABASE: ${DB_DATABASE}
@@ -21,3 +23,10 @@ services:
       MYSQL_PASSWORD: ${DB_PASSWORD}
     volumes:
       - ./data:/var/lib/mysql
+    networks:
+      - acg_faka
+
+networks:
+  acg_faka:
+    name: ${DOCKER_FAKA_NETWORKNAME}
+    external: ${DOCKER_FAKA_EXTERNAL_NETWORK}

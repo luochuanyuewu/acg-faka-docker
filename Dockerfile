@@ -10,7 +10,7 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-install -j$(nproc) gd pdo pdo_mysql zip 
 
 # 复制应用代码到容器内部
-COPY acg-faka /var/www/html
+# COPY acg-faka /var/www/html
 
 # 设置 Apache 配置
 RUN a2enmod rewrite

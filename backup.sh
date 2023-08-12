@@ -10,6 +10,6 @@ mkdir -p $BACKUP_DIR
 tar czf $BACKUP_DIR/data.tar.gz -C ./ data
 
 # 压缩并备份 cache 文件夹
-tar czf $BACKUP_DIR/cache.tar.gz -C ./ cache
+tar czf $BACKUP_DIR/acg-faka.tar.gz -C ./ acg-faka
 
 echo "备份完成。备份文件保存在 $BACKUP_DIR 目录中。"
