@@ -1,0 +1,23 @@
+version: '3'
+services:
+  acg_faka:
+    image: acg_faka:latest
+    container_name: acg_faka
+    build:
+      context: .
+    ports:
+      - 2500:80
+    volumes:
+      - ./cache:/var/www/html/assets/cache
+    depends_on:
+      - acg_faka_db
+  acg_faka_db:
+    image: mysql:8
+    container_name: acg_faka_db
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - ./data:/var/lib/mysql
