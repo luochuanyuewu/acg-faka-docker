@@ -40,7 +40,7 @@ docker compose up -d --build
 
 1. 新的地方克隆一次本仓库。
 
-2. 然后从https://github.com/lizhipay/acg-faka这里下载最新acg-faka源码，下载后，把源码内容整体copy到acg-faka目录下。然后提交。
+2. 然后从[这里](https://github.com/lizhipay/acg-faka)下载最新acg-faka源码，下载后，把源码内容整体（除了.git）copy到acg-faka目录下。然后提交。
 
 3. 在你之前的仓库（包含两个remote那个），获取origin远程的更新（就是获取上一步骤你更新的源码），然后合并origin仓库的源码到你的fork仓库里。这样就在不破坏当前结构的情况下完成了源码更新。
 
